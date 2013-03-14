@@ -1,0 +1,11 @@
+set tabsize 4
+set speller "aspell check -l de"
+include "~/.nano/css.nanorc"
+include "~/.nano/gentoo.nanorc"
+include "~/.nano/html.nanorc"
+include "~/.nano/nanorc.nanorc"
+include "~/.nano/patch.nanorc"
+include "~/.nano/php.nanorc"
+include "~/.nano/sh.nanorc"
+include "~/.nano/tex.nanorc"
+include "~/.nano/xml.nanorc"
