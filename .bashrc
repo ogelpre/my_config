@@ -14,6 +14,14 @@ if [[ $- != *i* ]] ; then
     return
 fi
 
+if [ -z "${TMUX+xxx}" ] && [ -n "${SSH_CONNECTION+xxx}" ]; then
+    tmux a -t ssh || \
+        if [ -r ~/.tmux/ssh ]; then
+            tmux new -s ssh \; source ~/.tmux/ssh
+        else
+            tmux new -s ssh
+        fi
+fi
 
 # Put your fun stuff here.
 
