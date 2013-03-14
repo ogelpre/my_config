@@ -17,7 +17,9 @@ fi
 
 # Put your fun stuff here.
 
-. /usr/libexec/mc/mc.sh
+if [ -r /usr/libexec/mc/mc.sh ]; then
+    . /usr/libexec/mc/mc.sh
+fi
 
 alias back='cd - > /dev/null'
 alias sau='du -h --max-depth=1 . | sort -h'
