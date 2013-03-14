@@ -23,3 +23,4 @@ fi
 
 alias back='cd - > /dev/null'
 alias sau='du -h --max-depth=1 . | sort -h'
+alias nano='~/bin/nano.sh'
