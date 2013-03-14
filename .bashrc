@@ -14,13 +14,17 @@ if [[ $- != *i* ]] ; then
     return
 fi
 
-if [ -z "${TMUX+xxx}" ] && [ -n "${SSH_CONNECTION+xxx}" ]; then
-    tmux a -t ssh || \
-        if [ -r ~/.tmux/ssh ]; then
-            tmux new -s ssh \; source ~/.tmux/ssh
-        else
-            tmux new -s ssh
-        fi
+if [ -n "${SSH_CONNECTION+xxx}" ]; then
+	if [ "$TERM" != "screen" ] && [ -z "${TMUX+xxx}" ] && [ -x "/usr/bin/tmux" ]; then
+	    tmux a -t ssh || \
+	        if [ -r ~/.tmux/ssh ]; then
+	            /usr/bin/tmux new -s ssh \; source ~/.tmux/ssh
+	        else
+	            /usr/bin/tmux new -s ssh
+	        fi
+    elif [ "$TERM" != "screen" ] && [ -z "${TMUX+xxx}" ] && [ -x "/usr/bin/screen" ]; then
+        /usr/bin/screen -S ssh -x -R
+	fi
 fi
 
 #Put your fun stuff here.

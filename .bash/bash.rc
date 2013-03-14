@@ -1,3 +1,12 @@
+#force ignoredups and ignorespace in histfile
+export HISTCONTROL=ignoreboth
+export HISTSIZE=1000
+export HISTFILESIZE=1000
+
+if [ -f /etc/bash_completion ]; then                                                                                                                         
+    . /etc/bash_completion                                                                                                                                   
+fi
+
 if [ -e /etc/gentoo-release ]; then
     return
 fi
