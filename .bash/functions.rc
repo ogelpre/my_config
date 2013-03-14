@@ -1,0 +1,17 @@
+function ncput	{ 
+	if [ $# -lt 2 ]; then
+		echo "usage: ncput files ip"
+		return 0
+	fi
+	tar -cv $1 | nc $2 1337; 
+}
+
+ 
+
+function ncget	{ 
+	if [ $# -lt 1 ]; then
+		echo "usage: ncget destination"
+		return 0
+	fi
+	nc -l -p 1337 | tar -C $@ -xv; 
+}
