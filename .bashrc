@@ -23,12 +23,10 @@ if [ -z "${TMUX+xxx}" ] && [ -n "${SSH_CONNECTION+xxx}" ]; then
         fi
 fi
 
-# Put your fun stuff here.
+#Put your fun stuff here.
 
-if [ -r /usr/libexec/mc/mc.sh ]; then
-    . /usr/libexec/mc/mc.sh
+if [ -d ~/.bash ]; then
+    for file in ~/.bash/*.rc; do
+        source $file;
+    done
 fi
-
-alias back='cd - > /dev/null'
-alias sau='du -h --max-depth=1 . | sort -h'
-alias nano='~/bin/nano.sh'
