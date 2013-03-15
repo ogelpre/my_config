@@ -29,8 +29,8 @@ fi
 
 #Put your fun stuff here.
 
-if [ -d ~/.bash ]; then
-    for file in ~/.bash/*.rc; do
-        source $file;
-    done
-fi
+for file in ~/.bash/*.rc; do
+    if [ -e "$file" ]; then
+        source "$file"
+    fi
+done
