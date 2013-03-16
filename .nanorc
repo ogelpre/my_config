@@ -1,5 +1,6 @@
 set tabsize 4
 set speller "aspell check -l de"
+set tabstospaces
 include "~/.nano/css.nanorc"
 include "~/.nano/gentoo.nanorc"
 include "~/.nano/html.nanorc"
