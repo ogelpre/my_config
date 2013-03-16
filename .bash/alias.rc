@@ -1,3 +1,14 @@
-alias back='cd - > /dev/null'
+alias rm='rm -i'
+#alias cp='cp -i'
+#alias mv='mv -i'
+alias mkdir='mkdir -p'
+
+alias du='du -h'
+alias df='df -hT'
+
+alias b='cd - > /dev/null'
+alias ..='cd ..'
 alias sau='du -h --max-depth=1 . | sort -h'
+alias path='echo -e ${PATH//:/\\n}'
+alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 alias nano='~/bin/nano.sh'
