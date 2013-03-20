@@ -46,6 +46,9 @@ function rainbow()
         char=${args:0:1}
         args=${args:1}
         echo -en "\033[${bg}m\033[""$bold"";3""$color""m$char"
+        if [ " " == "$char" ]; then
+            continue
+        fi
         if [ "0" -eq "$bold" ]; then
             bold=1
         else
