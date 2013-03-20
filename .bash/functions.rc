@@ -31,3 +31,31 @@ function swap()
 }
 
 function my_ps() { ps $@ f -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
+
+function rainbow()
+{
+    if [ "0" -eq "$#" ]; then
+        args="█████████"
+    else
+        args="$@"
+    fi
+    bg=39
+    color=1
+    bold=0
+    while test -n "$args"; do
+        char=${args:0:1}
+        args=${args:1}
+        echo -en "\033[${bg}m\033[""$bold"";3""$color""m$char"
+        if [ "0" -eq "$bold" ]; then
+            bold=1
+        else
+            bold=0
+        fi
+        if [ "7" -le "$color" -a "0" -eq "$bold" ]; then
+            color=0
+        elif [ "0" -eq "$bold" ]; then
+            let color++
+        fi
+    done
+    echo -e "\033[0m"
+}
