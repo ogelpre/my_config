@@ -3,6 +3,9 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=1000
 export HISTFILESIZE=1000
 
+shopt -s checkjobs
+shopt -s dotglob
+
 if [ -f /etc/bash_completion ]; then                                                                                                                         
     . /etc/bash_completion
 fi
