@@ -17,3 +17,5 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 
 alias :q='read -s -n1 -p "Do you realy want to quit the shell? [y]|n "; case "$REPLY" in y|Y|j|J"") exit ;; *) echo; unset REPLY; esac'
 alias :q!='exit;exit'
+
+alias unsafe-ssh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PasswordAuthentication=no'
