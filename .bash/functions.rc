@@ -62,3 +62,22 @@ function rainbow()
     done
     echo -e "\033[0m"
 }
+
+function pinguntilhostisup() {
+	for host in $@; do
+		hostisup=255
+		until [ "$hostisup" -eq "0" ]; do
+			host $host > /dev/null || ! echo "host $host not found" || return 255
+			ping -c3 $host > /dev/null
+			hostisup=$?
+		 done
+	done
+}
+
+hopssh() {
+    hophost=$1
+    shift
+    host=$1
+    shift
+    ssh -o ProxyCommand="ssh ${hophost} -W %h:%p" ${host} $@
+}

@@ -19,3 +19,4 @@ alias :q='read -s -n1 -p "Do you realy want to quit the shell? [y]|n "; case "$R
 alias :q!='exit;exit'
 
 alias unsafe-ssh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PasswordAuthentication=no'
+alias unsafe-cssh='cssh -o "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PasswordAuthentication=no"'
