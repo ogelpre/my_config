@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-AGENT=/tmp/.ssh-agent-$USER
+AGENT=$HOME/.ssh/ssh-agent
 
 if [ -r $AGENT ]; then
     source $AGENT
