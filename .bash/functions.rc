@@ -74,10 +74,14 @@ function pinguntilhostisup() {
 	done
 }
 
-hopssh() {
+function hopssh() {
     hophost=$1
     shift
     host=$1
     shift
     ssh -o ProxyCommand="ssh ${hophost} -W %h:%p" ${host} $@
+}
+
+function settitle() {
+    echo -e "\033k${@}\033\\"
 }
