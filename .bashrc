@@ -29,6 +29,8 @@ fi
 
 #Put your fun stuff here.
 
+unset PROMPT_COMMAND
+
 for file in ~/.bash/*.rc; do
     if [ -e "$file" ]; then
         source "$file"
