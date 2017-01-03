@@ -4,3 +4,4 @@ selectp -t 1
 splitw -v -p 50
 clock-mode
 selectp -t 0
+set-option -g history-limit 10000
