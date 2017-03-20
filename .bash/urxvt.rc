@@ -1,0 +1,7 @@
+function u10() {
+    printf '\33]50;%s\007' "xft:Terminus:pixelsize=10"
+}
+
+function u20() {
+    printf '\33]50;%s\007' "xft:Terminus:pixelsize=20"
+}
