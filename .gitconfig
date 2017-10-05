@@ -1,3 +1,5 @@
 [include]
     path = .gituser
     path = .gitcolor
+[push]
+	default = matching
