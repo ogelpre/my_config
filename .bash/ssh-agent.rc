@@ -6,7 +6,7 @@ if [ -r $AGENT ]; then
     source $AGENT
 fi
 
-if [ ! -r /proc/$SSH_AGENT_PID/cmdline ] || [ "ssh-agent" != "$(cat /proc/$SSH_AGENT_PID/cmdline)" ]; then
+if [ ! -r /proc/$SSH_AGENT_PID/cmdline ] || [ "ssh-agent" != "$(cat /proc/$SSH_AGENT_PID/cmdline | sed 's/\x0$//')" ]; then
 # there is no agent running
 # start a new agent
 ssh-agent | grep -v echo > $AGENT
