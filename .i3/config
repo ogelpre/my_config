@@ -173,11 +173,16 @@ exec --no-startup-id xautolock -time 10 -locker "i3lock -d -p win -i  $HOME/.i3l
 
 # start terminals on workspace 1
 exec --no-startup-id i3-msg 'workspace 1'
+exec --no-startup-id xbacklight -set 10.0
+exec --no-startup-id $HOME/.i3/mouse.sh
 exec --no-startup-id $HOME/.i3/workspace-1.sh
+exec --no-startup-id $HOME/bin/pidgininfo.sh
 
 # start chromium
-for_window [class="chromium-browser-chromium"] move workspace number 8
-exec --no-startup-id i3-msg 'workspace 8; exec chromium-browser; layout tabbed; workspace 1'
+#for_window [class="chromium-browser-chromium"] move workspace number 8
+#exec --no-startup-id i3-msg 'workspace 8; exec chromium-browser; layout tabbed; workspace 1'
+# start firefox
+exec --no-startup-id i3-msg 'workspace 8; exec firefox -P default; layout tabbed; workspace 1'
 # start thunderbird
 exec --no-startup-id i3-msg 'workspace 9; exec thunderbird; layout tabbed; workspace 1'
 # start pidgin
@@ -186,6 +191,13 @@ exec --no-startup-id i3-msg 'workspace 10; exec pidgin; layout tabbed; workspace
 # move workspace to another output
 bindsym $mod+p move workspace to output LVDS1
 bindsym $mod+Shift+p move workspace to output VGA1
+
+bindsym $mod+Ctrl+1 move workspace to output eDP1
+bindsym $mod+Ctrl+2 move workspace to output DP1-1
+bindsym $mod+Ctrl+3 move workspace to output DP1-2
+bindsym $mod+Ctrl+4 move workspace to output DP1-3
+bindsym $mod+Ctrl+5 move workspace to output HDMI1
+bindsym $mod+Ctrl+6 move workspace to output HDMI2
 
 # switch between workspaces
 bindsym Mod1+Tab workspace next
@@ -211,3 +223,8 @@ bindsym $mod+Shift+XF86Launch1 exec /usr/bin/play $HOME/.i3/kaneval.mp3
 
 # 
 bindsym $mod+less exec --no-startup-id $HOME/.i3/workspace-1.sh
+
+bindsym $mod+n exec import -window root ~/screenshot/$(date '+%Y%m%d-%H%M%S').png
+
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5.0
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5.0
