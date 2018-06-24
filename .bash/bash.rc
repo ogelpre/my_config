@@ -84,6 +84,7 @@ if ${use_color} ; then
         alias grep='grep --colour=auto'
         alias egrep='egrep --colour=auto'
         alias fgrep='fgrep --colour=auto'
+        alias ip='ip --color'
 else
         RET_CODE_PROMPT='$(if [[ ${RET_CODE} != 0 ]]; then echo -ne "${RET_CODE} "; fi;)'
         if [[ ${EUID} == 0 ]] ; then
