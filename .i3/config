@@ -154,7 +154,7 @@ bar {
         position top
         mode hide
         modifier $mod
-        tray_output LVDS1
+        tray_output eDP1
         status_command py3status
 }
 
@@ -162,6 +162,7 @@ bar {
 bindsym $mod+g exec xautolock -locknow
 bindsym XF86Launch1 exec xautolock -locknow
 bindsym XF86ScreenSaver exec xautolock -locknow
+bindsym XF86PowerOff exec xautolock -locknow
 
 #enable auto screenlock
 exec --no-startup-id xautolock -time 10 -locker "i3lock -d -p win -i  $HOME/.i3lock/wixp.png" &
