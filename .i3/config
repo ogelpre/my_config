@@ -160,8 +160,6 @@ bar {
 
 # lock screenn
 bindsym $mod+g exec xautolock -locknow
-bindsym XF86Launch1 exec xautolock -locknow
-bindsym XF86ScreenSaver exec xautolock -locknow
 bindsym XF86PowerOff exec xautolock -locknow
 
 #enable auto screenlock
@@ -219,8 +217,8 @@ bindsym $mod+m scratchpad show
 bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 \-5%
 bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 +5%
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute 0 toggle
-bindsym $mod+XF86Launch1 exec /usr/bin/aplay $HOME/.i3/tusch.wav
-bindsym $mod+Shift+XF86Launch1 exec /usr/bin/play $HOME/.i3/kaneval.mp3
+bindsym $mod+Menu exec /usr/bin/aplay $HOME/.i3/tusch.wav
+bindsym $mod+Shift+Menu exec /usr/bin/play $HOME/.i3/kaneval.mp3
 
 # 
 bindsym $mod+less exec --no-startup-id $HOME/.i3/workspace-1.sh
