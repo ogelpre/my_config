@@ -1,0 +1,3 @@
+#aliases for network engineers
+alias inc='grep -i'
+alias reload='reboot'

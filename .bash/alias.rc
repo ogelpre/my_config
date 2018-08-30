@@ -22,5 +22,3 @@ alias ssh='ssh -o SendEnv=TMUX'
 alias unsafe-ssh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PasswordAuthentication=no'
 alias unsafe-cssh='cssh -o "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PasswordAuthentication=no"'
 alias unsafe-scp='scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PasswordAuthentication=no'
-
-alias inc='grep -i'
