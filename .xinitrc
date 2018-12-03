@@ -2,4 +2,4 @@
 . .bash/locale.rc
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 cd $HOME
-exec ck-launch-session i3
+exec ck-launch-session dbus-launch i3

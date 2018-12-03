@@ -25,6 +25,16 @@ if [ -n "${SSH_CONNECTION+xxx}" ]; then
     elif [ "$TERM" != "screen" ] && [ -z "${TMUX+xxx}" ] && [ -x "/usr/bin/screen" ]; then
         /usr/bin/screen -S ssh -x -R
     fi
+elif [ "$(basename $(tty))" = "tty1" ] && command -v startx >/dev/null; then
+    while true; do
+        (startx -- vt1&);
+        vlock
+        read -p "Restart X (y/n)?" choice
+        case "$choice" in
+            y|Y ) continue ;;
+            * ) break ;;
+esac
+    done
 fi
 
 #Put your fun stuff here.
