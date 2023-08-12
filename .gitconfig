@@ -1,5 +1,9 @@
 [include]
     path = .gituser
     path = .gitcolor
+[pull]
+	rebase = true
 [push]
 	default = matching
+[init]
+	defaultBranch = main
