@@ -85,3 +85,8 @@ function hopssh() {
 function settitle() {
     echo -e "\033k${@}\033\\"
 }
+
+fix-remote-term() {
+  ssh ${1} mkdir -p .terminfo/r
+  scp /usr/share/terminfo/r/rxvt-unicode* ${1}:.terminfo/r/
+}
