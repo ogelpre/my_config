@@ -1,14 +1,26 @@
 #!/usr/bin/env bash
 
+AUTH_SOCK=~/.ssh/ssh_auth_sock
 AGENT=$HOME/.ssh/ssh-agent
 
-if [ -r $AGENT ]; then
-    source $AGENT
-fi
+#if no auth socket exist, try to load ssh-agent
+if [ -z "${SSH_AUTH_SOCK+x}" ]; then
 
-if [ ! -r /proc/$SSH_AGENT_PID/cmdline ] || [ "ssh-agent" != "$(cat /proc/$SSH_AGENT_PID/cmdline | sed 's/\x0$//')" ]; then
-# there is no agent running
-# start a new agent
-ssh-agent | grep -v echo > $AGENT
-source $AGENT
+    # load existing ssh-agnet config, if it exist
+    if [ -r $AGENT ]; then
+        source $AGENT
+    fi
+
+    # check if agent is still running else start a new one
+    if [ ! -r /proc/$SSH_AGENT_PID/cmdline ] || [ "ssh-agent" != "$(cat /proc/$SSH_AGENT_PID/cmdline | sed 's/\x0$//')" ]; then
+        # there is no agent running
+        # start a new agent
+        ssh-agent | grep -v echo > $AGENT
+        source $AGENT
+    fi
+fi
+if [ "${SSH_AUTH_SOCK}" != $AUTH_SOCK ]; then
+    ln -sf "${SSH_AUTH_SOCK}" $AUTH_SOCK
+    SSH_AUTH_SOCK=$AUTH_SOCK
+    export SSH_AUTH_SOCK
 fi
