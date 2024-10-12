@@ -5,7 +5,6 @@
 # that can't tolerate any output.  So make sure this doesn't display
 # anything or bad things will happen !
 
-
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
@@ -25,9 +24,9 @@ if [ -n "${SSH_CONNECTION+xxx}" ]; then
     elif [ "$TERM" != "screen" ] && [ -z "${TMUX+xxx}" ] && [ -x "/usr/bin/screen" ]; then
         /usr/bin/screen -S ssh -x -R
     fi
-elif [ "$(basename $(tty))" = "tty1" ] && command -v startx >/dev/null; then
+elif [ "$(basename $(tty))" = "tty1" ] && command -v sway >/dev/null; then
     while true; do
-        (startx -- vt1&);
+        dbus-run-session sway&
         vlock
         read -p "Restart X (y/n)?" choice
         case "$choice" in
