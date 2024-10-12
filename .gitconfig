@@ -7,3 +7,9 @@
 	default = matching
 [init]
 	defaultBranch = main
+[gpg]
+	format = x509
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
