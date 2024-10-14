@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-AUTH_SOCK=~/.ssh/ssh_auth_sock
-AGENT=$HOME/.ssh/ssh-agent
+AUTH_SOCK=/tmp/.ssh_auth_sock_${USER}
+AGENT=/tmp/.ssh_agent_${USER}
 
 #if no auth socket exist, try to load ssh-agent
 if [ -z "${SSH_AUTH_SOCK+x}" ]; then
